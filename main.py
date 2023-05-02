@@ -1,35 +1,28 @@
-
 import pandas as pd
 
 if __name__ == '__main__':
-    gyemantok = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv')
-    # gyémántok adatokat letöltjük
+    diamonds = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv')
+    ##print(diamonds)
 
     ##print(diamonds['carat'])
-    # csak az oszlop megjelenítése
 
-
-    #Minta az összegzésre
+    print(diamonds['carat'])
     sum = 0
-    for i in gyemantok['carat']:
+
+    for i in diamonds['carat']:
         sum += i
     print('karát összesen: ' + str(sum))
 
+    print(sum)
+    darabszam = diamonds['carat'].count()
+    print('darabszám: '+ str(darabszam))
 
-    atlag = sum / gyemantok.count()
+
+    atlag = sum / darabszam
     print('átlag: ' + str(atlag))
 
-
-    for gyemant in gyemantok.iterrows():
-        carat = gyemant[1]['carat']
-        if (carat > atlag):
-            print(gyemant[1])
-    szum = 0
-
-    for gyemant in gyemantok.iterrows():
-        pass
-        # ha a gyémánt színe 'H'
-        # akkor addjuk össze a price oszolopból az értékeket
-
-    print("Összes ára: " + str(szum))
+    for gyemant in diamonds.iterrows():
+        color = gyemant[1]['color']
+        if color == 'H':
+            print(gyemant)
 
